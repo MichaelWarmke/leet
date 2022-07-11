@@ -1,4 +1,4 @@
-package warmke.mike.leet.p347
+package warmke.mike.leet.arrays.p347
 
 import java.util.Comparator
 

@@ -1,4 +1,4 @@
-package warmke.mike.leet.p242
+package warmke.mike.leet.arrays.p242
 
 class Solution {
     fun isAnagram(s: String, t: String): Boolean {

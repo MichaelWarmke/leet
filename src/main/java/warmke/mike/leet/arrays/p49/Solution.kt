@@ -1,4 +1,4 @@
-package warmke.mike.leet.p49
+package warmke.mike.leet.arrays.p49
 
 class Solution {
     fun groupAnagrams(strs: Array<String>): List<List<String>> {

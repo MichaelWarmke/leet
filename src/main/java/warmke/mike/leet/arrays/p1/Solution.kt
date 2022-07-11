@@ -1,4 +1,4 @@
-package warmke.mike.leet.p1
+package warmke.mike.leet.arrays.p1
 
 class Solution {
     fun twoSum(nums: IntArray, target: Int): IntArray {

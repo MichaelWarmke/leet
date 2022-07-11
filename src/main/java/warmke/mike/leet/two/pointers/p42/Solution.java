@@ -1,4 +1,4 @@
-package warmke.mike.leet.p42;
+package warmke.mike.leet.two.pointers.p42;
 
 import java.util.LinkedList;
 

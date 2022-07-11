@@ -2,6 +2,7 @@ package warmke.mike.leet.p42;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import warmke.mike.leet.two.pointers.p42.Solution;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

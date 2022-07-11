@@ -1,4 +1,4 @@
-package warmke.mike.leet.p238
+package warmke.mike.leet.arrays.p238
 
 class Solution {
     fun productExceptSelf(nums: IntArray): IntArray {

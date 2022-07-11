@@ -1,6 +1,7 @@
 package warmke.mike.leet.p1
 
 import org.junit.jupiter.api.Test
+import warmke.mike.leet.arrays.p1.Solution
 import kotlin.test.assertEquals
 
 class SolutionTest {
