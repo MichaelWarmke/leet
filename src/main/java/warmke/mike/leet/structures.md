@@ -56,3 +56,18 @@ this is used for heapsort
 #### Min Heap
 
 all children of parents node will have a higher value than the parent
+
+# HashMap
+
+each object key is hashed then used in the index of the array.
+
+What happens if there is a key collision?
+
+linear probing and separate chaining
+
+linear probing just continues down the list until it find a free space, then stores the value there
+
+separate chaining has a linked list attached to every key in the array. that way if multiple key hash to the same value.
+their values will be stored in a linked list at that key's value.
+
+O(n) for both methods on worst case for all operations
