@@ -71,3 +71,22 @@ separate chaining has a linked list attached to every key in the array. that way
 their values will be stored in a linked list at that key's value.
 
 O(n) for both methods on worst case for all operations
+
+# Tree
+
+traversals 
+
+Inorder Left,Root,Right
+preorder Root,Left,Right
+postorder Left,Right,Root
+
+Breath/level first operate on all children before actually moving to them
+
+### Binary Tree vs Binary Search Tree
+
+A BST is a BT
+
+but it has some extra constraints, like each node would have lesser value on the left child and greater on the right.\
+subtrees must also be BSTs\
+there can be no duplicate values
+

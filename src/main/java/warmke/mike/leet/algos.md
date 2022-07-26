@@ -23,6 +23,33 @@ Small input sizes below 64 elements uses binary linear search and binary inserti
 
 this is a stable sort in that elements that are equal are not moved around by this search
 
+### QuickSort
+
+#### Time Complexity Average O(nlogn)  Worst O(n^2)
+
+a pivot is selected, then the array it sorted until 3 conditions are true
+all element to the right are larger than the pivot
+all element to the left are less than the pivot
+correct position in final sorted array
+
+choose a 'random' pivot in the array, and move it to the end
+two pointers one starting at right and the other starting at the left
+l,r
+
+l finds first number larger than pivot
+r finds first number less than pivot
+
+those values are then swapped
+
+continue this until r < l
+
+then swap l with pivot
+
+when selecting the pivot we want the value to be as close to the median as possible \
+so than we can as close to the infinite series of 1/2n n = 1..INF
+
+median of three i = 0, size /2, size -1 are taken and the middle of those three are the pivot
+
 # Insert
 
     hashmap O(1) worst O(n)
@@ -31,6 +58,7 @@ this is a stable sort in that elements that are equal are not moved around by th
 
     binary search tree O(log n) worst O(n)
     b tree O(log n)
+    min/max heap O(logn) worst case O(1) average
 
 # Delete
 
@@ -40,6 +68,7 @@ this is a stable sort in that elements that are equal are not moved around by th
 
     binary search tree O(log n) worst O(n)
     b tree O(log n)
+    min/max heap O(logn) worst case O(logn) average
 
 # Look up Access
 
@@ -50,6 +79,9 @@ this is a stable sort in that elements that are equal are not moved around by th
     binary search tree O(log n) worst O(n)
     b tree O(log n)
 
+    min/max heap O(1) for min/max value
+    
+
 # Search
 
     array O(n)
@@ -57,4 +89,10 @@ this is a stable sort in that elements that are equal are not moved around by th
 
     binary search tree O(log n) worst O(n)
     b tree O(log n)
+
+# Decision Tree
+
+making a decision tree time complexity n^k 
+n = number of decisions
+k = depth of the tree
 
