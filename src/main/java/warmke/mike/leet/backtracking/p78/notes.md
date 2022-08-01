@@ -5,13 +5,15 @@
 do a DFS here over a Decision Tree
 where is the decision is to add the number or not
 
+O(n2^n)
+
              []
         [1]     []
     [1,2] [1] [2] []
 
     class Solution {
-    val result = mutableListOf<Set<Int>>()
-    lateinit var inums: IntArray
+        val result = mutableListOf<Set<Int>>()
+        lateinit var inums: IntArray
     
         fun subsets(nums: IntArray): List<List<Int>> {
             inums = nums

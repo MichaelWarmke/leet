@@ -1,8 +1,13 @@
-package warmke.mike.leet
 
-import java.lang.Math.*
-import java.util.*
-import kotlin.math.pow
+
+# Maximum Subarray
+
+brute force would be to compute the values for all sub arrays
+
+was think to use a sliding window
+
+always update the right pointer
+update the left pointer to be equal to right if the value in the window goes negative
 
 class Solution {
 
@@ -21,7 +26,7 @@ class Solution {
 
             maxSum = kotlin.math.max(maxSum, curSum)
         }
-
+        
         return maxSum
     }
 }
