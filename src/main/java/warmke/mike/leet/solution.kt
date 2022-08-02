@@ -4,24 +4,31 @@ import java.lang.Math.*
 import java.util.*
 import kotlin.math.pow
 
+
 class Solution {
+    val dp = mutableMapOf<String, Boolean>()
 
-    fun maxSubArray(nums: IntArray): Int {
-        var r = 0
-        var maxSum = 0 // Int.MIN
-        var curSum = 0 // Int.MIN
+    fun checkValidString(s: String): Boolean {
+        fun valid(ns: String, r: Int, l: Int): Boolean {
+            if(ns.isEmpty()) return r == l
 
-        while (r < nums.size) {
-            curSum += nums[r]
-            r += 1
-
-            if (curSum < 0) {
-                curSum = 0 // Int.MIN
+            if (ns[0] == '(') {
+                if (dp[ns.substring(1)] != null) return dp[ns.substring(1)] == true
+                dp[ns.substring(1)] = valid(ns.substring(1), r + 1, l)
+                return dp[ns.substring(1)] == true
             }
 
-            maxSum = kotlin.math.max(maxSum, curSum)
+            if (ns[0] == ')') {
+                if (dp[ns.substring(1)] != null) return dp[ns.substring(1)] == true
+                dp[ns.substring(1)] = valid(ns.substring(1),r , l + 1)
+                return dp[ns.substring(1)] == true
+            }
+
+            return valid("" + ns.substring(1), r , l) ||
+                    valid("(" + ns.substring(1), r, l) ||
+                    valid(")" + ns.substring(1), r, l)
         }
 
-        return maxSum
+        return valid(s, 0 ,0)
     }
 }
