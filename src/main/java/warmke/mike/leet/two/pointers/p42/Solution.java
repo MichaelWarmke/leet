@@ -6,7 +6,7 @@ import java.util.LinkedList;
  * seems like most people implemented by using pointers instead of using a Stack/LinkedList Object
  * there method would greatly increase performance.
  */
-class Solution {
+public class Solution {
     public int trap(int[] height) {
 
         var stack = new LinkedList<Integer>();
