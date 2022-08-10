@@ -6,29 +6,48 @@ import kotlin.math.pow
 
 
 class Solution {
-    val dp = mutableMapOf<String, Boolean>()
 
-    fun checkValidString(s: String): Boolean {
-        fun valid(ns: String, r: Int, l: Int): Boolean {
-            if(ns.isEmpty()) return r == l
 
-            if (ns[0] == '(') {
-                if (dp[ns.substring(1)] != null) return dp[ns.substring(1)] == true
-                dp[ns.substring(1)] = valid(ns.substring(1), r + 1, l)
-                return dp[ns.substring(1)] == true
-            }
+}
+fun spiralOrder(matrix: Array<IntArray>): List<Int> {
+    val result = mutableListOf<Int>()
 
-            if (ns[0] == ')') {
-                if (dp[ns.substring(1)] != null) return dp[ns.substring(1)] == true
-                dp[ns.substring(1)] = valid(ns.substring(1),r , l + 1)
-                return dp[ns.substring(1)] == true
-            }
+    var top = 0
+    var bottom = matrix.size - 1
+    var left = 0
+    var right = matrix[0].size - 1
 
-            return valid("" + ns.substring(1), r , l) ||
-                    valid("(" + ns.substring(1), r, l) ||
-                    valid(")" + ns.substring(1), r, l)
+    while (left < right && top < bottom) {
+        for (i in left..right) {
+            result.add(matrix[top][i])
         }
+        top += 1
 
-        return valid(s, 0 ,0)
+        for (i in top..bottom) {
+            result.add(matrix[i][right])
+        }
+        right -= 1
+
+//        if (!(left < right && top < bottom)) break
+
+        for (i in right downTo left) {
+            result.add(matrix[bottom][i])
+        }
+        bottom -= 1
+
+        for (i in bottom downTo top) {
+            result.add(matrix[i][left])
+        }
+        left += 1
     }
+    return result
+}
+
+fun main() {
+
+    for (i in 1..5) {
+        println(i)
+    }
+
+    println(spiralOrder(arrayOf(intArrayOf(1,2,3), intArrayOf(4,5,6), intArrayOf(7,8,9))))
 }
