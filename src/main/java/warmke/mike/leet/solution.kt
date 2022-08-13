@@ -4,24 +4,23 @@ import java.lang.Math.pow
 import kotlin.math.pow
 
 class Solution {
+    fun plusOne(digits: IntArray): IntArray {
 
-    fun isHappy(n: Int): Boolean {
-        val previousNums =  mutableSetOf<Int>()
-        var m = n
-
-        while(m != 1) {
-            if (previousNums.contains(m)) return false
-
-            var cur = m.toDouble()
-            var total = 0
-            while (cur > 0) {
-                total +=  (cur % 10).pow(2).toInt()
-                cur /= 10
+        for (i in digits.size downTo 0) {
+            if (i == 0 &&  digits[i] == 9) {
+                val result = digits.toMutableList()
+                result.add(0, 1)
+                return result.toIntArray()
             }
 
-            m = total
-            previousNums.add(total)
+            if (digits[i] != 9) {
+                digits[i] = digits[i] + 1
+                return digits
+            }
+
+            digits[i] = 0
         }
-        return true
+
+        return digits
     }
 }
