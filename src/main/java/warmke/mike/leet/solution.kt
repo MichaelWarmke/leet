@@ -23,4 +23,9 @@ class Solution {
 
         return digits
     }
+
+
 }
+
+val m = mutableMapOf<String, List<String>>()
+
