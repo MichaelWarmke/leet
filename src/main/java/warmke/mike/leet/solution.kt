@@ -1,31 +1,38 @@
 package warmke.mike.leet
 
 import java.lang.Math.pow
+import java.util.*
 import kotlin.math.pow
 
-class Solution {
-    fun plusOne(digits: IntArray): IntArray {
-
-        for (i in digits.size downTo 0) {
-            if (i == 0 &&  digits[i] == 9) {
-                val result = digits.toMutableList()
-                result.add(0, 1)
-                return result.toIntArray()
-            }
-
-            if (digits[i] != 9) {
-                digits[i] = digits[i] + 1
-                return digits
-            }
-
-            digits[i] = 0
-        }
-
-        return digits
+class Node(val value: Int, var right: Node?) : Comparable<Node> {
+    override fun compareTo(other: Node): Int {
+        return this.value.compareTo(other.value)
     }
-
-
 }
 
-val m = mutableMapOf<String, List<String>>()
+class Solution {
+    fun mergeKLists(lists: Array<Node?>): Node? {
+        var head: Node? = null
+        var cur: Node? = null
+        val minHeap = PriorityQueue<Node>()
 
+        lists.asSequence().filterNotNull().forEach { minHeap.add(it) }
+
+        while(!minHeap.isEmpty()) {
+            val min = minHeap.peek()
+
+            if (head == null) {
+                head = min
+                cur = min
+            } else {
+                cur!!.right = min
+                cur = min
+            }
+            minHeap.remove(min)
+            min.right.let {
+                minHeap.add(it)
+            }
+        }
+        return head
+    }
+}
