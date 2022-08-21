@@ -4,35 +4,38 @@ import java.lang.Math.pow
 import java.util.*
 import kotlin.math.pow
 
-class Node(val value: Int, var right: Node?) : Comparable<Node> {
-    override fun compareTo(other: Node): Int {
-        return this.value.compareTo(other.value)
-    }
-}
+class MedianFinder() {
 
-class Solution {
-    fun mergeKLists(lists: Array<Node?>): Node? {
-        var head: Node? = null
-        var cur: Node? = null
-        val minHeap = PriorityQueue<Node>()
+    val smallq = PriorityQueue<Int>() // maxHeap
+    val largeq = PriorityQueue<Int>(Comparator.reverseOrder()) // minHeap
 
-        lists.asSequence().filterNotNull().forEach { minHeap.add(it) }
+    fun addNum(num: Int) {
+        val m = findMedian()
 
-        while(!minHeap.isEmpty()) {
-            val min = minHeap.peek()
-
-            if (head == null) {
-                head = min
-                cur = min
-            } else {
-                cur!!.right = min
-                cur = min
-            }
-            minHeap.remove(min)
-            min.right.let {
-                minHeap.add(it)
-            }
+        if (num > m) {
+            largeq.add(num)
+        } else {
+            smallq.add(num)
         }
-        return head
+
+
+        if (smallq.size > largeq.size + 2) {
+            largeq.add(smallq.remove())
+        }
+
+        if (largeq.size > smallq.size + 2) {
+            smallq.add(largeq.remove())
+        }
+    }
+
+    fun findMedian(): Double {
+        val small = if (smallq.isEmpty()) 0 else smallq.peek()
+        val large = if (largeq.isEmpty()) 0 else largeq.peek()
+
+        return when {
+            smallq.size == largeq.size -> ((small + large) / 2)
+            smallq.size > largeq.size -> small
+            else  -> large
+        }.toDouble()
     }
 }
