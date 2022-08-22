@@ -2,40 +2,38 @@ package warmke.mike.leet
 
 import java.lang.Math.pow
 import java.util.*
+import kotlin.collections.ArrayDeque
 import kotlin.math.pow
 
-class MedianFinder() {
+class Solution {
+    val letters: MutableMap<Int, MutableList<String>> = mutableMapOf(
+        Pair(2, mutableListOf("a", "b", "c")),
+        Pair(3, mutableListOf("d", "e", "f")),
+        Pair(4, mutableListOf("g", "h", "i")),
+        Pair(5, mutableListOf("j", "k", "l")),
+        Pair(6, mutableListOf("m", "n", "o")),
+        Pair(7, mutableListOf("p", "q", "r", "s")),
+        Pair(8, mutableListOf("t", "u", "v")),
+        Pair(9, mutableListOf("w", "x", "y", "z"))
+        )
 
-    val smallq = PriorityQueue<Int>() // maxHeap
-    val largeq = PriorityQueue<Int>(Comparator.reverseOrder()) // minHeap
+    fun letterCombinations(digits: String): List<String> {
+        val result = mutableListOf<String>()
+        val stack = mutableListOf<String>()
 
-    fun addNum(num: Int) {
-        val m = findMedian()
+        fun recur(start: Int): Unit {
+            if (start >= digits.length) {
+                result.add(stack.toList().joinToString { it })
+                return
+            }
 
-        if (num > m) {
-            largeq.add(num)
-        } else {
-            smallq.add(num)
+            letters[digits[start].digitToInt()]!!.forEach { c ->
+                stack.add(c)
+                recur(start + 1)
+                stack.removeLast()
+            }
         }
-
-
-        if (smallq.size > largeq.size + 2) {
-            largeq.add(smallq.remove())
-        }
-
-        if (largeq.size > smallq.size + 2) {
-            smallq.add(largeq.remove())
-        }
-    }
-
-    fun findMedian(): Double {
-        val small = if (smallq.isEmpty()) 0 else smallq.peek()
-        val large = if (largeq.isEmpty()) 0 else largeq.peek()
-
-        return when {
-            smallq.size == largeq.size -> ((small + large) / 2)
-            smallq.size > largeq.size -> small
-            else  -> large
-        }.toDouble()
+        recur(0)
+        return result.toList()
     }
 }
