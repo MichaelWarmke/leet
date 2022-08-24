@@ -96,3 +96,9 @@ making a decision tree time complexity n^k
 n = number of decisions
 k = depth of the tree
 
+# UnionFind
+
+# adjacent list
+    a tool to help traverse graphs 
+    key is the node
+    value is a list of its children

@@ -6,34 +6,19 @@ import kotlin.collections.ArrayDeque
 import kotlin.math.pow
 
 class Solution {
-    val letters: MutableMap<Int, MutableList<String>> = mutableMapOf(
-        Pair(2, mutableListOf("a", "b", "c")),
-        Pair(3, mutableListOf("d", "e", "f")),
-        Pair(4, mutableListOf("g", "h", "i")),
-        Pair(5, mutableListOf("j", "k", "l")),
-        Pair(6, mutableListOf("m", "n", "o")),
-        Pair(7, mutableListOf("p", "q", "r", "s")),
-        Pair(8, mutableListOf("t", "u", "v")),
-        Pair(9, mutableListOf("w", "x", "y", "z"))
-        )
+    fun validate(n: Int, edges: Array<IntArray>): Boolean {
+        val al = edges.asSequence().groupBy { it[0] }.mapValues { it.value.map { list -> list[1] } }
+        val visited = mutableSetOf<Int>()
 
-    fun letterCombinations(digits: String): List<String> {
-        val result = mutableListOf<String>()
-        val stack = mutableListOf<String>()
-
-        fun recur(start: Int): Unit {
-            if (start >= digits.length) {
-                result.add(stack.toList().joinToString { it })
-                return
+        fun recur(n: Int): Boolean {
+            if (visited.contains(n)) return false
+            var result = true
+            for (i in al[n]!!) {
+                result = result && recur(i)
             }
-
-            letters[digits[start].digitToInt()]!!.forEach { c ->
-                stack.add(c)
-                recur(start + 1)
-                stack.removeLast()
-            }
+            return result
         }
-        recur(0)
-        return result.toList()
+
+        return recur(0) && visited.size == n
     }
 }
