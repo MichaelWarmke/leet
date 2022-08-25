@@ -102,3 +102,21 @@ k = depth of the tree
     a tool to help traverse graphs 
     key is the node
     value is a list of its children
+
+# min spanning tree
+
+    min cost to connect a graph without cycles 
+
+# prim's algo
+
+    
+# total edges in a graph
+    would be equal to the number of nodes squared
+    v = n ^ 2
+
+# Djikstra - shortest path in graph
+
+    overall O(ElogV)
+    unreduced O(ElogV ^ 2)
+
+# Bellman - ford

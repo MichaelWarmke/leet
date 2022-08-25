@@ -1,10 +1,7 @@
-package warmke.mike.leet
 
-import java.lang.Math.min
-import java.lang.Math.pow
-import java.util.*
-import kotlin.collections.ArrayDeque
-import kotlin.math.pow
+
+# Cheapest Flights Within K Stops
+    djiksra's algo but also with a extra condition od being at most k stops
 
     data class Flight(val des: Int, val cost: Int, val stop: Int = 0, val stopMax: Int) : Comparable<Flight> {
 
@@ -18,7 +15,7 @@ import kotlin.math.pow
             val al = (0..n).map { it to mutableListOf<Flight>()}.toMap()
             flights.forEach { al[it[0]]!!.add(Flight(it[1], it[2], 0, k)) }
 
-            val minHeap = PriorityQueue<Flight>(Comparator.reverseOrder())
+            val minHeap = PriorityQueue<Flight>()
             minHeap.add(Flight(src, 0, 0, k))
 
             val visited = mutableSetOf<Int>()
@@ -37,5 +34,33 @@ import kotlin.math.pow
 
             }
             return -1
+        } 
+    }
+
+--- 
+
+neet uses bellman-ford
+
+    class Solution {
+
+        fun fundCheapestPrice(n: Int, flights: Array<IntArray>, src: Int, dst: Int, k: Int: Int {
+            val prices = mutableList(n) { Int.MAX_VALUE }
+            prices[src] = 0
+
+            for (i in 0..k+1) {
+                tmpPrices = prices.toMutableList()
+
+                for (j in flights.indeces) {
+                    if (prices[flights[j][0]] == Int.MAX_VALUE) continue
+
+                    if (prices[flights[j][0]] + flights[j][2] < tmpPrices[flights[j][1]]) {
+                        tmpPrices[flights[j][1]] = prices[flights[j][0]] + flights[j][2]
+                    }
+                }
+                prices = tmpPrices
+            }
+
+            return if(prices[dst] == Int.MAX_VALUE) -1 else prices[dst]
         }
     }
+
