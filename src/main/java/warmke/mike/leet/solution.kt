@@ -14,4 +14,7 @@ class Solution {
 
 fun main() {
     (1..5).forEach { println(it) }
+    1 shl 1
+    var int = 0
+    val lol = mutableListOf<Int>().toIntArray()
 }

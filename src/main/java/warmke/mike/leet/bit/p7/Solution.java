@@ -1,4 +1,4 @@
-package warmke.mike.leet.p7;
+package warmke.mike.leet.bit.p7;
 
 import java.util.Arrays;
 

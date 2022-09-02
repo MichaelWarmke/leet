@@ -1,8 +1,8 @@
 package warmke.mike.leet.p7;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import warmke.mike.leet.bit.p7.Solution;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
