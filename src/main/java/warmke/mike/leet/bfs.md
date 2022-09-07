@@ -85,3 +85,22 @@ stack.add() adds to last of array queue
             }
         } 
     }
+
+### Practice
+
+    class Node(val i: Int, var left: Node?, var right: Node?)
+
+    fun traverse(root: Node?) {
+        if (root == null) return
+        val queue = ArrayDeque<Node>()
+        queue.addLast(root)
+        
+        while (queue.isNotEmpty()) {
+            val cur = queue.removeFirst()
+            print(cur.i)
+    
+            if (cur.left != null) { queue.addLast(cur.left!!) }
+            if (cur.right != null) { queue.addLast(cur.right!!) }
+        }
+    }
+

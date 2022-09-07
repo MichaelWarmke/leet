@@ -6,15 +6,23 @@ import kotlin.collections.ArrayDeque
 import kotlin.math.pow
 
 
-class Solution {
-    fun canPartition(nums: IntArray) {
-        println(0..5)
-    }
-}
+class Node(val i: Int, var left: Node?, var right: Node?)
 
-fun main() {
-    (1..5).forEach { println(it) }
-    1 shl 1
-    var int = 0
-    val lol = mutableListOf<Int>().toIntArray()
+fun traverse(root: Node?) {
+    if (root == null) return
+    val queue = ArrayDeque<Node>()
+    queue.addLast(root)
+
+    while (queue.isNotEmpty()) {
+        val cur = queue.removeFirst()
+        print(cur.i)
+
+        if (cur.left != null) { queue.addLast(cur.left!!) }
+        if (cur.right != null) { queue.addLast(cur.right!!) }
+    }
+
+    "".toCharArray().forEach { print(it) }
+
+    val array = IntArray(5)
+    array.size
 }
