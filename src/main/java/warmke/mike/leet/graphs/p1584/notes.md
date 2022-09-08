@@ -26,7 +26,7 @@
                 cpoints.asSequence()
                     .filter { it != point && !vistied.contains(it) }
                     .map { Point(it.index, point.distanceTo(it)) }
-                    forEach { minHeap.add(it) }
+                    .forEach { minHeap.add(it) }
 
                 val connectedPoint = minHeap.peek()
                 result += connectedPoint.distance

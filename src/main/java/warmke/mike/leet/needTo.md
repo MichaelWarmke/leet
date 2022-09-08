@@ -41,7 +41,9 @@ implement sorting algos nlogn
 - quicksort
 - heapsort -- 
 
-how to implement hashtable in kotlin only using arrays
+how to implement hashtable in kotlin only using arrays -- good here well not really
+  separate chaining -- 
+  linear probing -- 
 
 trees
 - DFS inorder, preorder, postorder 
@@ -50,9 +52,13 @@ trees
 - n ary tree
 - trie
 - one type of self-balancing tree, red/black, AVL, splay, B tree
+  implement one of these trees -- ill do this at the end
 
 graphs 
 - know how to represent them in memory, pointers and objects, matrix, adjacency list
+  al -- good
+  pointers and objects -- 
+  grid --
 - pro and con of the above
 - BFS and DFS in a graph and there complexity
 - Dijkstra
