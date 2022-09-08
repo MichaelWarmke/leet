@@ -99,3 +99,15 @@ As far as databases go, I have experience with Oracle DB
   - T shutdown the old processes and remove any data that had been duplicated
   - A we shut down the old processes, then worked with all of our down stream systems to correct the data
   - R after a day worth of work on Sunday, all the data was corrected and the misses were fixed
+
+# Why do you want to work here?
+
+I really admire the ingenuity and dedication to good engineering practices that are found at Google.
+I see a lot of developers that can aspire to be the best that they can be, work for Google, and I want to be a part of 
+that culture that is constantly challenging you to become a better dev, and think outside the box.
+I'm also very interested to work on projects that have the incredible scale that some of Google's product.
+I'm interest to see what type of problems that team would be facing and working on, and what problems they have worked
+through in the past.  
+
+# why do you think you fit in with the company?
+
