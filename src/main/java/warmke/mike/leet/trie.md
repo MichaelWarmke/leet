@@ -21,7 +21,7 @@
                     cur = newNode
                 }
             }
-            var.isEnd = true
+            cur.isEnd = true
         }
 
         fun containsWord(word: String): Boolean {
@@ -30,9 +30,6 @@
                 if (cur[c] == null) break
                 cur = cur[c]
             }
-            return cur[word.size - 1] == cur.c && cur.isEnd
+            return word[word.size - 1] == cur.c && cur.isEnd
         }
-
-        
-        
     }

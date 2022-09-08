@@ -41,3 +41,7 @@
     fun dfs(grid: Array<IntArray>): Unit {
         
     }
+
+###
+
+    time complexity for backtracking, number of decisions ^ height of tree
