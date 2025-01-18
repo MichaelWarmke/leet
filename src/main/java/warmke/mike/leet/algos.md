@@ -1,9 +1,15 @@
 
 # Breadth-first search
-Search all child elements 
+Search all child elements in order of depth in tree
+1 -
+2 2 -
+3 3 3 - 
+
+# Depth-first search
+Search all child elements in order of depth
+1 2 3 - 3 - 2 3
 
 # Sort
-
 
 sort on collections O(nlogn) using quicksort/merge/heap
 

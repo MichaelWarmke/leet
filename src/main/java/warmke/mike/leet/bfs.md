@@ -32,7 +32,6 @@ stack.add() adds to last of array queue
 
 ### recursively kotlin binary tree
 
-
     class Node(val i: Int, val left: Node, val right: Node) {}
 
     class BFS  {
@@ -87,20 +86,50 @@ stack.add() adds to last of array queue
     }
 
 ### Practice
-
+```kotlin
     class Node(val i: Int, var left: Node?, var right: Node?)
 
     fun traverse(root: Node?) {
         if (root == null) return
         val queue = ArrayDeque<Node>()
         queue.addLast(root)
-        
+
         while (queue.isNotEmpty()) {
             val cur = queue.removeFirst()
             print(cur.i)
-    
+
             if (cur.left != null) { queue.addLast(cur.left!!) }
             if (cur.right != null) { queue.addLast(cur.right!!) }
         }
     }
+```
 
+### BFS Java
+```java 
+class Scratch {
+    static class Node {
+        int data;
+        Node left;
+        Node right;
+    }
+
+    public void bfs(Node root) {
+        Queue<Node> queue = new LinkedList<>();
+
+        queue.add(root);
+        while(!queue.isEmpty()) {
+            Node cur = queue.remove();
+
+            System.out.println(cur.data);
+
+            if (cur.left != null) {
+                queue.add(cur.left);
+            }
+
+            if (cur.right != null) {
+                queue.add(cur.right);
+            }
+        }
+    }
+}
+```

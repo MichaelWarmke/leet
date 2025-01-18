@@ -23,3 +23,29 @@
 
  1 2 3 4 5 
        l r
+ 
+### Java Binary Search 
+```java
+class Solution {
+
+    public boolean search(int[] ints, int target) {
+        int r = 0;
+        int l = ints.length - 1;   
+        while (l < r) {
+            int midpoint = ((r - l) + l) / 2;
+            
+            if (target > midpoint) {
+                l = midpoint + 1;
+            } else {
+                r = midpoint - 1;
+            }
+        }
+        return l == target;
+    }
+}
+```
+t 5
+1 2 3 4 5 6 7 8
+l             r
+        l     r
+        lr      

@@ -22,3 +22,29 @@
 
         return TreeNode(root.v, reverse(root.right), reverse(root.left))
     }
+
+does this work with either BFS or DFS? yes as long as it visits every mode once 
+this is a depth first traversal
+
+### Java Impl
+
+```java 
+class Solution {
+    static class Node {
+        Node left;
+        Node right;
+    }
+
+    public void reverse(Node root) {
+        if (root == null) return;
+        
+        Node tmp = root.right;
+        root.right = root.left;
+        root.left = tmp;
+        
+        reverse(root.left);
+        reverse(root.right);
+    }
+    
+}
+```

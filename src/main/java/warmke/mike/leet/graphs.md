@@ -4,6 +4,9 @@
 
 
 ## Adjacency List
+What is this?
+it is a representation of a graph with the key being the Node,
+and the value being the list of Node that it shares an edge with
 
 ### construct an adjacency list
 
