@@ -1,28 +1,58 @@
 package warmke.mike.leet.Amazon;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 class Solution {
-    public int lengthOfLongestSubstring(String s) {
-        int res = 0;
-        for (int i = 0; i < s.length(); i++) {
-            Set<Character> charSet = new HashSet<>();
-            for (int j = i; j < s.length(); j++) {
-                if (charSet.contains(s.charAt(j))) {
-                    break;
-                }
-                charSet.add(s.charAt(j));
-            }
-            res = Math.max(res, charSet.size());
+
+    static class Twitter {
+        Map<Integer, List<Integer>> tweetsByUser;
+        Map<Integer, Set<Integer>> friendsByUser;
+        public Twitter() {
+            tweetsByUser = new HashMap<>();
+            friendsByUser = new HashMap<>();
         }
-        return res;
+
+        public void postTweet(int userId, int tweetId) {
+            if (!tweetsByUser.containsKey(userId)) {
+                tweetsByUser.put(userId, new ArrayList<>());
+            }
+            tweetsByUser.get(userId).add(tweetId);
+        }
+
+        public List<Integer> getNewsFeed(int userId) {
+            Set<Integer> friends = friendsByUser.get(userId);
+            Set<Integer> usersToGet = new HashSet<>(friends);
+            usersToGet.add(userId);
+            return tweetsByUser.entrySet().stream()
+                    .filter(entry -> friends.contains(entry.getKey()))
+                    .flatMap(entry -> entry.getValue().stream())
+                    .sorted(Comparator.reverseOrder())
+                    .limit(10)
+                    .toList();
+        }
+
+        public void follow(int followerId, int followeeId) {
+            if (!friendsByUser.containsKey(followerId)) { friendsByUser.put(followerId, new HashSet<>()); }
+            friendsByUser.get(followerId).add(followeeId);
+        }
+
+        public void unfollow(int followerId, int followeeId) {
+            Set<Integer> friends = friendsByUser.get(followerId);
+            if (friends != null) {
+                friends.remove(followeeId);
+            }
+        }
     }
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.lengthOfLongestSubstring("abcabcbb"));
-        System.out.println(solution.lengthOfLongestSubstring(" "));
-    }
+        Twitter twitter = new Twitter();
+        twitter.postTweet(1, 1);
+        twitter.postTweet(2, 2);
+        twitter.getNewsFeed(1);
 
+        int[] array = {1, 2, 3 ,4 ,5};
+        Arrays.binarySearch(array, 3);
+
+    }
 }

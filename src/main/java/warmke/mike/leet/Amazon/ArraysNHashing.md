@@ -1,3 +1,18 @@
+
+## Review 9
+
+#### Got Answer on own
+- Longest Consecutive Sequence
+- Valid Sudoku
+- Group Anagrams
+
+#### needed help
+- Encode and Decode Strings
+- Top K Frequent Elements
+
+#### no clue
+- Product of Array Except Self
+
 p347
 
 ```java

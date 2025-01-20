@@ -1,3 +1,15 @@
+
+#### Got Answer on own
+- 
+
+#### needed help
+- Container With Most Water
+- Two Sum II Input Array Is Sorted
+- 3 Sum
+
+#### no clue
+- 
+
 p11
 
 ```java
